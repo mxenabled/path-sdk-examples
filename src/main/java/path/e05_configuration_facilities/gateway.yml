@@ -1,0 +1,16 @@
+demo:
+
+  facilities:
+    sessionStore:
+      class: path.e05_configuration_facilities.MemoryStore
+      configurations: {} # A configurations block is required. This is a bug.
+
+    encryptionService:
+      class: path.e05_configuration_facilities.Des3EncryptionService
+      configurations: {}
+
+  accessor:
+    class: path.e05_configuration_facilities.Accessor
+    scope: singleton
+
+  gateways: {}

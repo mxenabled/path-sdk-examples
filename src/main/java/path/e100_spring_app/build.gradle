@@ -1,0 +1,56 @@
+import org.gradle.api.tasks.SourceSet
+import org.gradle.api.tasks.bundling.Jar
+
+plugins {
+  id "com.mx.coppuccino" version "0.3.0"
+  id "java"
+  id "groovy"
+  id "maven-publish"
+  id "com.jfrog.artifactory" version "4.16.1"
+  id "com.github.ben-manes.versions" version "0.39.0"
+  id "io.spring.dependency-management" version "1.0.11.RELEASE"
+  id "org.springframework.boot" version "2.5.3"
+  id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+group = "com.mx.path"
+version = "0.0.1"
+jar.archiveBaseName = "path-example-app"
+
+allprojects {
+  repositories {
+    maven { url "https://artifactory.internal.mx:443/maven-local" }
+    maven { url "https://artifactory.internal.mx:443/gradle-local" }
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+  }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "com.mx.path.api.gateway:gateway:5.+"
+  implementation "com.mx.path.api.lib:origination:0.1.0"
+
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
+  testImplementation "junit:junit:4.13.1"
+  testImplementation "org.mockito:mockito-inline:3.9.0"
+  testImplementation "org.spockframework:spock-core:2.0-groovy-3.0"
+}
+
+sourceSets {
+  test {
+    java { srcDirs "src/test/java" }
+    groovy { srcDirs "src/test/groovy" }
+  }
+}
+
+test { useJUnitPlatform() }
+
+wrapper {
+  gradleVersion = "6.9"
+  distributionType = Wrapper.DistributionType.ALL
+}

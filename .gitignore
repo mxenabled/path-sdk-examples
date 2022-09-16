@@ -1,0 +1,21 @@
+target/**
+**.iml
+.idea/
+
+## gradle ##
+build
+/.gradle/
+
+## lambok config file ##
+lombok.config
+
+## coppuccino ##
+.coppuccino
+
+## dependency check ##
+dependency-check-data.session
+.dependency-check-data
+
+## FileStore cache files
+.session
+.cache

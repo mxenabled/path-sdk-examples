@@ -1,0 +1,23 @@
+demo:
+
+  accessor:
+    class: path.e04_configuration_behavior.Accessor
+    scope: singleton
+
+  rootBehaviors:
+    - class: path.e04_configuration_behavior.LoggingBehavior
+      configurations:
+        logHeader: This is the ROOT Behavior
+
+  gateways:
+    accounts:
+      accessor:
+        class: path.e04_configuration_behavior.AccountAccessor
+        scope: prototype
+      behaviors:
+        - class: path.e04_configuration_behavior.TimingBehavior
+
+    transfers:
+      accessor:
+        class: path.e04_configuration_behavior.TransferAccessor
+        scope: prototype

@@ -1,0 +1,9 @@
+demo:
+
+  accessor:
+    class: path.e01_configuration_basic.Accessor
+    scope: singleton
+
+  gateways:
+    id: {}
+    accounts: {}

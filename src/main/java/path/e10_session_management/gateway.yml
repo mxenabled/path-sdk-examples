@@ -1,0 +1,25 @@
+demo:
+  facilities:
+    sessionStore:
+      class: path.example.facilities.store.FileStoreFacility
+      configurations:
+        path: ./.session
+
+    cacheStore:
+      class: path.example.facilities.store.FileStoreFacility
+      configurations:
+        path: ./.cache
+
+  accessor:
+    class: path.e02_configuration_accessor.Accessor
+    scope: singleton
+
+  gateways:
+    id:
+      accessor:
+        class: path.e10_session_management.IdAccessor
+        scope: singleton
+    accounts:
+      accessor:
+        class: path.e10_session_management.AccountAccessor
+        scope: singleton

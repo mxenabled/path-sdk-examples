@@ -1,0 +1,19 @@
+demo:
+
+  accessor:
+    class: path.e02a_configuration_accessor.Accessor
+    scope: prototype
+    configurations:
+      key1: value1
+
+  gateways:
+    id: {}
+
+    accounts:
+      gateways:
+        transactions:
+          accessor:
+            class: path.e02a_configuration_accessor.TransactionAccessor # <= Overrides the default provided by path.e02_configuration_accessor.AccountAccessor annotation
+            scope: singleton
+            configurations:
+              another_value: value1

@@ -1,0 +1,23 @@
+demo:
+
+  facilities:
+    sessionStore:
+      class: path.example.facilities.store.FileStoreFacility
+      configurations:
+        path: ./.session
+    eventBus:
+      class: com.mx.path.gateway.events.GatewayEventBus
+
+  accessor:
+    class: path.e12_connections.Accessor
+
+  gateways:
+    accounts:
+      accessor:
+        class: path.e12_connections.AccountAccessor
+        scope: prototype
+        connections:
+          bank:
+            baseUrl: http://localhost:3000
+            configurations:
+              clientId: C0999283

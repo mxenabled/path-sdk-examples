@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+echo "Running all examples..."
+
+./bin/e01_configuration_basic
+./bin/e02_configuration_accessor
+./bin/e02a_configuration_accessor
+./bin/e02b_configuration_accessor
+./bin/e03_configuration_accessor_scope
+./bin/e04_configuration_behavior
+./bin/e05_configuration_facilities
+./bin/e10_session_management
+./bin/e11_remote_gateways
+./bin/e12_connections

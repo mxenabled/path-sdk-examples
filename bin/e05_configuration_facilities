@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+java -cp "build/libs/path-examples-0.0.1.jar" path.e05_configuration_facilities.Main $@

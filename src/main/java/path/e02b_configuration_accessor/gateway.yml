@@ -1,0 +1,16 @@
+demo:
+
+  accessor:
+    class: path.e02b_configuration_accessor.Accessor
+    scope: prototype
+    configurations:
+      clientSecret: $ecr3t
+      logCalls: true
+    connections:
+      superAuth:
+        baseUrl: http://api.bank1.com/v1
+        configurations:
+          clientIdentifier: client1
+
+  gateways:
+    id: {}

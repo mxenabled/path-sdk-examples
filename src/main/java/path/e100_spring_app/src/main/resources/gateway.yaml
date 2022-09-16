@@ -1,0 +1,96 @@
+demo:
+  facilities:
+    sessionStore:
+      class: com.mx.path.example.gateway.facility.MemoryStore
+      configurations: {}
+
+    encryptionService:
+      class: com.mx.path.example.gateway.facility.Des3EncryptionService
+      configurations: {}
+
+  accessor:
+    class: com.mx.path.example.gateway.accessor.ExampleBaseAccessor
+    scope: singleton
+    facilities:
+    connections:
+      mdx:
+        baseUrl: https://int-live.moneydesktop.com
+        keystorePassword: ''
+        configurations:
+          clientId: demo
+          apiKey: SecretValue
+    configurations:
+      minRequestDelayMillis: 100
+      maxRequestDelayMillis: 2000
+      originationChallenges:
+        basicState:
+          title: HELLO THERE!
+          prompt: Let's start with some basic info
+          questions:
+            - prompt: First Name
+              promptType: TEXT
+            - prompt: Last Name
+              promptType: TEXT
+            - prompt: Email
+              promptType: EMAIL
+            - prompt: Mobile Phone Number
+              promptType: PHONE
+        credentialState:
+          title: CREDENTIALS
+          prompt: Enter a secure password
+          questions:
+            - prompt: Username
+              promptType: TEXT
+            - prompt: Password
+              promptType: PASSWORD
+            - prompt: Confirm Password
+              promptType: PASSWORD
+        otpState:
+          title: IDENTITY
+          prompt: Enter the secure code that was sent to your mobile phone number.
+          questions:
+            - prompt: Security code
+              promptType: TEXT
+        addressState:
+          title: HOME ADDRESS
+          prompt: To ensure your card reaches you, please provide us with your home contact info.
+          questions:
+            - prompt: Steet Address
+              promptType: TEXT
+            - prompt: Apt/Suite Number
+              promptType: TEXT
+            - prompt: City
+              promptType: TEXT
+            - prompt: Zip Code
+              promptType: TEXT
+            - prompt: State
+              promptType: TEXT
+        dobState:
+          title: DATE OF BIRTH
+          prompt: You must be 18 years or older to open a Technovation account
+          questions:
+            - prompt: Date of Birth
+              promptType: TEXT
+        ssnState:
+          title: IDENTITY
+          prompt: Federal regulation requires that we verify your Social Security Number. This won't affect your credit score.
+          questions:
+            - prompt: Social Security Number
+              promptType: TEXT
+        activityState:
+          title: ACTIVITY
+          prompt: To help us identify you, please provide us with the following info. This will not effect your application.
+          questions:
+            - prompt: What is your occupation
+              promptType: TEXT
+            - prompt: What is the source of your income
+              promptType: TEXT
+            - prompt: What is your annual income
+              promptType: TEXT
+            - prompt: How do you get paid
+              promptType: TEXT
+            - prompt: How did you hear about Technovation
+              promptType: TEXT
+
+  gateways:
+    originations: {}

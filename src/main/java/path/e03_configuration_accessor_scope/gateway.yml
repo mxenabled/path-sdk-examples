@@ -1,0 +1,14 @@
+demo:
+
+  accessor:
+    class: path.e03_configuration_accessor_scope.Accessor
+
+  gateways:
+    accounts:
+      accessor:
+        class: path.e03_configuration_accessor_scope.AccountAccessor
+        scope: prototype
+
+    transfers:
+      accessor:
+        class: path.e03_configuration_accessor_scope.TransferAccessor

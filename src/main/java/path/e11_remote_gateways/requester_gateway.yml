@@ -1,0 +1,14 @@
+demo:
+
+  facilities:
+    messageBroker:
+      class: path.e11_remote_gateways.ThreadMessageBroker
+      configurations: {} # A configurations block is required. This is a bug.
+
+    sessionStore:
+      class: path.e11_remote_gateways.MemoryStore
+      configurations: {} # A configurations block is required. This is a bug.
+
+  accessor:
+    class: path.e11_remote_gateways.Accessor
+    scope: singleton

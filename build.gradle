@@ -1,0 +1,68 @@
+plugins {
+  id "com.github.mxenabled.coppuccino" version "3.0.4"
+  id "com.github.mxenabled.vogue" version "1.0.1"
+  id "com.github.mxenabled.hush" version "2.2.0"
+  id "java"
+  id "maven-publish"
+  id "groovy"
+  id "com.jfrog.artifactory" version "4.28.3"
+  id "io.freefair.lombok" version "6.4.3"
+}
+
+group "com.mx.path.example"
+version "0.0.1"
+jar.archiveBaseName = "path-examples"
+
+allprojects {
+  repositories {
+    maven { url "https://artifactory.internal.mx:443/maven-local" }
+    maven { url "https://artifactory.internal.mx:443/gradle-local" }
+    mavenCentral()
+    mavenLocal()
+    maven { url "https://jitpack.io" }
+  }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+  implementation "com.github.mxenabled.path-sdk:http:0.+"
+  implementation "com.github.mxenabled.path-facilities:message-broker-nats:0.+"
+  implementation "com.github.mxenabled.path-mdx-model:mdx-gateways:0.+"
+
+  implementation "info.picocli:picocli:4.6.3" // for commandline features
+  implementation "commons-io:commons-io:20030203.000550" // for file reading
+  implementation "org.slf4j:slf4j-nop:1.7.+" // silence log messages
+  implementation "io.opentracing:opentracing-mock:0.33.0" // for request tracing
+
+  testImplementation "org.mockito:mockito-inline:3.+"
+  testImplementation "org.spockframework:spock-core:1.+"
+}
+
+sourceSets {
+  main {
+    java {
+      exclude "path/e100_spring_app/**"
+    }
+  }
+}
+
+artifacts { archives jar }
+
+wrapper {
+  gradleVersion = "7.4.2"
+  distributionType = Wrapper.DistributionType.ALL
+}
+
+jar {
+  duplicatesStrategy = "exclude"
+
+  from {
+    (configurations.runtimeClasspath).collect { it.isDirectory() ? it : zipTree(it) }
+  } {
+    // This removes signatures from signed JARs.
+    // For some reason, the JNI will fail the signature check when signed JARs are included in an UberJar.
+    exclude "META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA"
+  }
+}

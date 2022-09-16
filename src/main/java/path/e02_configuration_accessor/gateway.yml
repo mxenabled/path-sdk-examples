@@ -1,0 +1,18 @@
+demo:
+
+  accessor:
+    class: path.e02_configuration_accessor.Accessor
+    scope: singleton
+
+  gateways:
+    id:
+      accessor:
+        class: path.e02_configuration_accessor.IdAccessor
+        scope: singleton
+        configurations:
+          key1: value1
+
+    accounts:
+      accessor:
+        class: path.e02_configuration_accessor.AccountAccessor # <= Overrides the default provided by path.e02_configuration_accessor.Accessor
+        scope: singleton
