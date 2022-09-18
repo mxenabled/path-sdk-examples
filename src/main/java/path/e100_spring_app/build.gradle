@@ -6,7 +6,6 @@ plugins {
   id "java"
   id "groovy"
   id "maven-publish"
-  id "com.jfrog.artifactory" version "4.16.1"
   id "com.github.ben-manes.versions" version "0.39.0"
   id "io.spring.dependency-management" version "1.0.11.RELEASE"
   id "org.springframework.boot" version "2.5.3"
@@ -19,8 +18,6 @@ jar.archiveBaseName = "path-example-app"
 
 allprojects {
   repositories {
-    maven { url "https://artifactory.internal.mx:443/maven-local" }
-    maven { url "https://artifactory.internal.mx:443/gradle-local" }
     jcenter()
     mavenLocal()
     mavenCentral()
