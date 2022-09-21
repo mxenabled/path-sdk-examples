@@ -1,3 +1,5 @@
+Issues: https://github.com/mxenabled/path-sdk/issues
+
 ## Path Commandline Example
 
 This project is intended to demonstrate the features of the MX Path SDK.
