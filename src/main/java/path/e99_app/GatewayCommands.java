@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
 import com.mx.common.collections.ObjectMap;
-import com.mx.models.MdxList;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.models.id.Authentication;
 import com.mx.path.gateway.api.Gateway;
@@ -83,7 +83,7 @@ public class GatewayCommands {
     authentication.setPassword(password.toCharArray());
 
     AccessorResponse<Authentication> session = getGateway().id().authenticate(authentication);
-    if (session.getStatus() == AccessorResponseStatus.OK) {
+    if (session.getStatus() == PathResponseStatus.OK) {
       Session.createSession();
       session.getResult().withId(Session.current().getId());
     }

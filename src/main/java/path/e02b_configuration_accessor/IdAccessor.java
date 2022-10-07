@@ -1,9 +1,9 @@
 package path.e02b_configuration_accessor;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.id.IdBaseAccessor;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
 import com.mx.common.configuration.Configuration;
 import com.mx.common.connect.AccessorConnectionSettings;
 import com.mx.models.id.Authentication;
@@ -39,7 +39,7 @@ public class IdAccessor extends IdBaseAccessor {
 
     Authentication session = new Authentication().withUserId("user1").withId("session1");
 
-    return AccessorResponse.<Authentication>builder().result(session).status(AccessorResponseStatus.OK).build();
+    return AccessorResponse.<Authentication>builder().result(session).status(PathResponseStatus.OK).build();
   }
 
 }

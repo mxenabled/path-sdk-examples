@@ -1,9 +1,9 @@
 package path.e11_remote_gateways;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
 import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 
 import path.lib.Logger;

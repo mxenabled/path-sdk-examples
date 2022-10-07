@@ -7,10 +7,10 @@ import java.util.concurrent.ThreadLocalRandom;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.origination.OriginationBaseAccessor;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
 import com.mx.common.configuration.Configuration;
 import com.mx.models.challenges.Challenge;
 import com.mx.models.origination.Origination;
@@ -52,7 +52,7 @@ public final class ExampleOriginationAccessor extends OriginationBaseAccessor {
     validator.validate(getChallengeSchemaForId(challengeId), challenge);
     Origination nextState = orchestrator.nextState(id, challengeId);
     if (nextState == null) {
-      return new AccessorResponse<Origination>().withStatus(AccessorResponseStatus.NO_CONTENT);
+      return new AccessorResponse<Origination>().withStatus(PathResponseStatus.NO_CONTENT);
     }
     return new AccessorResponse<Origination>().withResult(nextState);
   }

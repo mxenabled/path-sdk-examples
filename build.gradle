@@ -1,7 +1,7 @@
 plugins {
-  id "com.github.mxenabled.coppuccino" version "3.0.4"
+  id "com.github.mxenabled.coppuccino" version "3.1.2"
   id "com.github.mxenabled.vogue" version "1.0.1"
-  id "com.github.mxenabled.hush" version "2.2.0"
+  id "com.github.mxenabled.hush" version "2.3.1"
   id "java"
   id "maven-publish"
   id "groovy"
@@ -24,9 +24,9 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-  implementation "com.github.mxenabled.path-sdk:http:0.+"
-  implementation "com.github.mxenabled.path-facilities:message-broker-nats:0.+"
-  implementation "com.github.mxenabled.path-mdx-model:mdx-gateways:0.+"
+  implementation "com.github.mxenabled.path-sdk:http:1.+"
+  implementation "com.github.mxenabled.path-facilities:message-broker-nats:1.+"
+  implementation "com.github.mxenabled.path-mdx-model:mdx-gateways:1.+"
 
   implementation "info.picocli:picocli:4.6.3" // for commandline features
   implementation "commons-io:commons-io:20030203.000550" // for file reading

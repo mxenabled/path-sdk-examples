@@ -3,8 +3,8 @@ package path.e03_configuration_accessor_scope;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.accessors.AccessorResponse;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.models.transfer.Transfer;
 import com.mx.models.transfer.options.TransferListOptions;

@@ -1,9 +1,9 @@
 package path.e10_session_management;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.id.IdBaseAccessor;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
 import com.mx.models.id.Authentication;
 import com.mx.path.model.context.Session;
 
@@ -24,6 +24,6 @@ public class IdAccessor extends IdBaseAccessor {
 
     return new AccessorResponse<Authentication>()
         .withResult(session)
-        .withStatus(AccessorResponseStatus.OK);
+        .withStatus(PathResponseStatus.OK);
   }
 }

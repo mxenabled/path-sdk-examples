@@ -3,12 +3,12 @@ package path.e01_configuration_basic;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorException;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
+import com.mx.common.accessors.ResourceNotFoundException;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 
 import path.lib.Logger;
@@ -55,7 +55,7 @@ public class AccountAccessor extends AccountBaseAccessor {
     return AccessorResponse.<Account>builder().result(ACCOUNTS.stream()
         .filter(account -> Objects.equals(id, account.getId()))
         .findFirst()
-        .orElseThrow(() -> new AccessorException("Account not found (" + id + ")", AccessorResponseStatus.NOT_FOUND, false, null)))
+        .orElseThrow(() -> new ResourceNotFoundException("Account not found (" + id + ")", "The requested account does not exist")))
         .build();
   }
 
@@ -66,7 +66,7 @@ public class AccountAccessor extends AccountBaseAccessor {
     simulateLongCall();
     return AccessorResponse.<MdxList<Account>>builder()
         .result(ACCOUNTS)
-        .status(AccessorResponseStatus.OK)
+        .status(PathResponseStatus.OK)
         .build();
   }
 

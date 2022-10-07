@@ -1,10 +1,10 @@
 package path.e03_configuration_accessor_scope;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.transfer.TransferBaseAccessor;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
+import com.mx.common.models.MdxList;
 import com.mx.models.transfer.Transfer;
 import com.mx.models.transfer.options.TransferListOptions;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
@@ -22,7 +22,7 @@ public class TransferAccessor extends TransferBaseAccessor {
     MdxList<Transfer> transfers = new MdxList<>();
     return new AccessorResponse<MdxList<Transfer>>()
         .withResult(transfers)
-        .withStatus(AccessorResponseStatus.OK)
+        .withStatus(PathResponseStatus.OK)
         // Pass this object id back to caller
         .withHeader("accessorId", String.valueOf(System.identityHashCode(this)));
   }

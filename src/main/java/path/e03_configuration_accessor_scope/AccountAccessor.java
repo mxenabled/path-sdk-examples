@@ -1,10 +1,10 @@
 package path.e03_configuration_accessor_scope;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
 import com.mx.path.gateway.configuration.annotations.MaxScope;
@@ -25,7 +25,7 @@ public class AccountAccessor extends AccountBaseAccessor {
   public final AccessorResponse<MdxList<Account>> list() {
     return new AccessorResponse<MdxList<Account>>()
         .withResult(new MdxList<>())
-        .withStatus(AccessorResponseStatus.OK)
+        .withStatus(PathResponseStatus.OK)
         // Pass this object id back to caller
         .withHeader("accessorId", String.valueOf(System.identityHashCode(this)));
   }
