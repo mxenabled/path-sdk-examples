@@ -2,7 +2,7 @@ package com.mx.path.example.web.controller
 
 import static org.mockito.Mockito.*
 
-import com.mx.accessors.AccessorResponse
+import com.mx.common.accessors.AccessorResponse
 import com.mx.models.challenges.Challenge
 import com.mx.models.origination.Origination
 import com.mx.path.gateway.api.Gateway

@@ -4,15 +4,16 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mx.accessors.AccessorConfiguration;
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
 import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
 import com.mx.path.gateway.configuration.annotations.Connection;
 import com.mx.path.gateway.configuration.annotations.MaxScope;
+import com.mx.path.gateway.context.Scope;
 import com.mx.path.model.context.Session;
 
 import path.e12_connections.bank.BankConnection;
@@ -30,7 +31,7 @@ public class AccountAccessor extends AccountBaseAccessor {
 
   @Override
   public final AccessorResponse<MdxList<Account>> list() {
-    List<BankAccount> accounts = connection.getAccounts(Session.current().getUserId());
+    List<BankAccount> accounts = connection.getAccounts(Session.current().getUserId(), Session.current().get(Scope.Session, "bankToken"));
     MdxList<Account> mdxAccounts = accounts.stream().map(bankAccount -> {
       Account mdxAccount = new Account();
       mdxAccount.setId(bankAccount.getId());
@@ -44,7 +45,7 @@ public class AccountAccessor extends AccountBaseAccessor {
 
     return new AccessorResponse<MdxList<Account>>()
         .withResult(mdxAccounts)
-        .withStatus(AccessorResponseStatus.OK);
+        .withStatus(PathResponseStatus.OK);
   }
 
   private String mapType(String t) {

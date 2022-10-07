@@ -1,7 +1,7 @@
 package path.e12_connections;
 
-import com.mx.accessors.AccessorConfiguration;
 import com.mx.accessors.BaseAccessor;
+import com.mx.common.accessors.AccessorConfiguration;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
 import com.mx.path.gateway.configuration.annotations.ChildAccessor;
 import com.mx.path.gateway.configuration.annotations.MaxScope;

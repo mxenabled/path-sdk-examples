@@ -1,7 +1,7 @@
 package path.e01_configuration_basic;
 
-import com.mx.accessors.AccessorConfiguration;
 import com.mx.accessors.BaseAccessor;
+import com.mx.common.accessors.AccessorConfiguration;
 import com.mx.path.gateway.configuration.annotations.ChildAccessor;
 
 @ChildAccessor(AccountAccessor.class)

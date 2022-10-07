@@ -3,9 +3,9 @@ package path.e10_session_management;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.accessors.AccessorResponse;
-import com.mx.accessors.AccessorResponseStatus;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.accessors.PathResponseStatus;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.models.id.Authentication;
 import com.mx.path.gateway.api.Gateway;
@@ -68,7 +68,7 @@ public class Main {
      * Session handling is currently required
      */
     String sessionId = null;
-    if (authenticationResult.getStatus() == AccessorResponseStatus.OK) {
+    if (authenticationResult.getStatus() == PathResponseStatus.OK) {
       sessionId = Session.current().getId();
       authenticationResult.getResult().withId(sessionId); // this is required if the result is going to be transmitted
       Session.current().save(); // Save the session state to configured SessionStore

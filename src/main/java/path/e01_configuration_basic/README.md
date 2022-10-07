@@ -49,7 +49,7 @@ gateway.accounts().list();
 gateway.accounts().transactions().list("account1");
 ```
 
-Any un-configured gateway or un-implemented operation will result in an AccessorException (status: NOT_IMPLEMENTED) exception.
+Any un-configured gateway or un-implemented operation will result in an AccessorMethodNotImplementedException (status: NOT_IMPLEMENTED) exception.
 
 #### Why the Gateway?
 

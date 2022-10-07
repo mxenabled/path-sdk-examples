@@ -3,8 +3,8 @@ package path.e01_configuration_basic;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.accessors.AccessorResponse;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.models.id.Authentication;
 import com.mx.path.gateway.api.Gateway;

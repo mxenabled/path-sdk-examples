@@ -6,13 +6,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mx.common.accessors.PathResponseStatus;
 import com.mx.common.configuration.Configuration;
-import com.mx.common.connect.ConnectException;
+import com.mx.common.connect.UpstreamErrorException;
 import com.mx.common.http.HttpStatus;
 import com.mx.path.api.connect.http.HttpAccessorConnection;
 import com.mx.path.api.connect.http.HttpRequest;
 import com.mx.path.api.connect.http.HttpResponse;
-import com.mx.path.model.context.Session;
 
 import path.e12_connections.bank.models.BankAccount;
 
@@ -29,14 +29,14 @@ public class BankConnection extends HttpAccessorConnection {
   }
 
   @SuppressWarnings("unchecked")
-  public final List<BankAccount> getAccounts(String memberId) {
-    HttpResponse response = request("accounts")
+  public final List<BankAccount> getAccounts(String memberId, String token) {
+    HttpResponse response = request("accounts", token)
         .withQueryStringParam("memberId", memberId)
         .withHeader("cache-ctrl", "NOCACHE")
         .withProcessor((resp) -> gson.fromJson(resp.getBody(), ACCOUNT_LIST_TYPE.getType()))
         .withOnComplete((resp) -> {
           if (resp.getStatus() != HttpStatus.OK) {
-            throw new ConnectException("Failed to get accounts", resp.getStatus(), false, null);
+            throw new UpstreamErrorException("Failed to get accounts", resp.getStatus(), PathResponseStatus.UNAVAILABLE);
           }
         })
         .get();
@@ -44,11 +44,12 @@ public class BankConnection extends HttpAccessorConnection {
     return response.getObject();
   }
 
-  @Override
-  public final HttpRequest request(String path) {
+  public final HttpRequest request(String path, String token) {
     HttpRequest httpRequest = super.request(path);
-    httpRequest.withHeader("token", Session.current().get(Session.ServiceIdentifier.Session, "bankToken"));
+    httpRequest.withHeader("token", token);
     httpRequest.withHeader("clientId", configuration.getClientId());
+
+    System.out.println("CLIENT_ID: " + configuration.getClientId());
 
     return httpRequest;
   }

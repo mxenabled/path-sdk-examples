@@ -2,12 +2,14 @@ package path.e12_connections;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
-import com.mx.accessors.AccessorResponse;
-import com.mx.models.MdxList;
+import com.mx.common.accessors.AccessorResponse;
+import com.mx.common.models.MdxList;
 import com.mx.models.account.Account;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
+import com.mx.path.gateway.context.Scope;
 import com.mx.path.model.context.RequestContext;
 import com.mx.path.model.context.Session;
 
@@ -33,8 +35,11 @@ public class Main {
      */
     Gateway gateway = gateways.get("demo");
 
+    RequestContext.builder().clientId("demo").build().register();
+
     Session.createSession();
     Session.current().setUserId("user1");
+    Session.current().put(Scope.Session, "bankToken", UUID.randomUUID().toString()); // Simulate previous login and store token
 
     RequestContext.builder().clientId("demo").build().register();
 

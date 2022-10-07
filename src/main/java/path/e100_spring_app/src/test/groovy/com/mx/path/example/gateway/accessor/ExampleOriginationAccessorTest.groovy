@@ -2,8 +2,8 @@ package com.mx.path.example.gateway.accessor
 
 import static org.mockito.Mockito.*
 
-import com.mx.accessors.AccessorConfiguration
-import com.mx.accessors.AccessorConnectionSettings
+import com.mx.common.accessors.AccessorConfiguration
+import com.mx.common.accessors.AccessorConnectionSettings
 import com.mx.common.collections.ObjectMap
 import com.mx.models.challenges.Challenge
 import com.mx.models.origination.Origination
