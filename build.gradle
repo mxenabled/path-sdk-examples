@@ -1,5 +1,5 @@
 plugins {
-  id "com.github.mxenabled.coppuccino" version "3.1.2"
+  id "com.github.mxenabled.coppuccino" version "3.1.3"
   id "com.github.mxenabled.vogue" version "1.0.1"
   id "com.github.mxenabled.hush" version "2.3.1"
   id "java"
@@ -16,7 +16,6 @@ allprojects {
   repositories {
     mavenCentral()
     mavenLocal()
-    maven { url "https://jitpack.io" }
   }
 }
 
@@ -24,9 +23,11 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-  implementation "com.github.mxenabled.path-sdk:http:1.+"
-  implementation "com.github.mxenabled.path-facilities:message-broker-nats:1.+"
-  implementation "com.github.mxenabled.path-mdx-model:mdx-gateways:1.+"
+  implementation platform("com.mx.path-facilities:platform:[1.0,2.0[")
+  implementation platform("com.mx.path-mdx-model:platform:[1.0,2.0[")
+  implementation "com.mx.path-core:http"
+  implementation "com.mx.path-facilities:message-broker-nats"
+  implementation "com.mx.path-mdx-model:mdx-gateways"
 
   implementation "info.picocli:picocli:4.6.3" // for commandline features
   implementation "commons-io:commons-io:20030203.000550" // for file reading
