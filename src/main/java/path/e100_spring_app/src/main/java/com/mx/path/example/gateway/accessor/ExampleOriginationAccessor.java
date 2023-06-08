@@ -7,16 +7,16 @@ import java.util.concurrent.ThreadLocalRandom;
 import lombok.AccessLevel;
 import lombok.Setter;
 
-import com.mx.accessors.origination.OriginationBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.configuration.Configuration;
-import com.mx.models.challenges.Challenge;
-import com.mx.models.origination.Origination;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.common.configuration.Configuration;
+import com.mx.path.core.context.Session;
 import com.mx.path.example.gateway.configuration.OriginationConfiguration;
 import com.mx.path.example.gateway.util.ChallengeValidator;
-import com.mx.path.model.context.Session;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
+import com.mx.path.model.mdx.accessor.origination.OriginationBaseAccessor;
+import com.mx.path.model.mdx.model.challenges.Challenge;
+import com.mx.path.model.mdx.model.origination.Origination;
 import com.mx.path.originationorchestrator.OriginationOrchestrator;
 
 public final class ExampleOriginationAccessor extends OriginationBaseAccessor {

@@ -6,8 +6,8 @@ import java.util.Set;
 
 import lombok.Getter;
 
-import com.mx.common.collections.ObjectMap;
-import com.mx.common.store.Store;
+import com.mx.path.core.common.collection.ObjectMap;
+import com.mx.path.core.common.store.Store;
 
 /**
  * This facility shows how to partially implement a Store using an in-memory Hash.

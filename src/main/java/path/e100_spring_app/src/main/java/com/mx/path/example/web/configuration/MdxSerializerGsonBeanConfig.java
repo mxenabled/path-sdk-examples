@@ -2,7 +2,7 @@ package com.mx.path.example.web.configuration;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mx.models.Resources;
+import com.mx.path.model.mdx.model.Resources;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

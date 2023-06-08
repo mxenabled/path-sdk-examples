@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mx.path.model.context.RequestContext;
+import com.mx.path.core.context.RequestContext;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

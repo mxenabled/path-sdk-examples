@@ -3,13 +3,13 @@ package path.e03_configuration_accessor_scope;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
-import com.mx.models.transfer.Transfer;
-import com.mx.models.transfer.options.TransferListOptions;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
+import com.mx.path.model.mdx.model.transfer.Transfer;
+import com.mx.path.model.mdx.model.transfer.options.TransferListOptions;
 
 import org.apache.commons.io.FileUtils;
 

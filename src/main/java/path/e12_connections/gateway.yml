@@ -6,7 +6,7 @@ demo:
       configurations:
         path: ./.session
     eventBus:
-      class: com.mx.path.gateway.events.GatewayEventBus
+      class: com.mx.path.gateway.event.GatewayEventBus
 
   accessor:
     class: path.e12_connections.Accessor

@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.context.Session;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
 import com.mx.path.gateway.configuration.annotations.Connection;
 import com.mx.path.gateway.configuration.annotations.MaxScope;
 import com.mx.path.gateway.context.Scope;
-import com.mx.path.model.context.Session;
+import com.mx.path.model.mdx.accessor.account.AccountBaseAccessor;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
 
 import path.e12_connections.bank.BankConnection;
 import path.e12_connections.bank.models.BankAccount;

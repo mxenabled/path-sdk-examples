@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mx.common.serialization.LocalDateTimeDeserializer;
+import com.mx.path.core.common.serialization.LocalDateTimeDeserializer;
 
 public class Logger {
   private static Gson gson;
 
   static {
     GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDateTime.class, LocalDateTimeDeserializer.builder().build()).setPrettyPrinting();
-    com.mx.models.Resources.registerResources(gsonBuilder);
+    com.mx.path.model.mdx.model.Resources.registerResources(gsonBuilder);
     gson = gsonBuilder.create();
   }
 

@@ -3,13 +3,13 @@ package path.e01_configuration_basic;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.accessors.ResourceNotFoundException;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.common.accessor.ResourceNotFoundException;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
+import com.mx.path.model.mdx.accessor.account.AccountBaseAccessor;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
 
 import path.lib.Logger;
 
@@ -55,7 +55,7 @@ public class AccountAccessor extends AccountBaseAccessor {
     return AccessorResponse.<Account>builder().result(ACCOUNTS.stream()
         .filter(account -> Objects.equals(id, account.getId()))
         .findFirst()
-        .orElseThrow(() -> new ResourceNotFoundException("Account not found (" + id + ")", "The requested account does not exist")))
+        .orElseThrow(() -> new ResourceNotFoundException("Account not found (" + id + ")")))
         .build();
   }
 

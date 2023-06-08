@@ -1,6 +1,6 @@
 package path.example.accessors
 
-import com.mx.common.accessors.AccessorConfiguration
+import com.mx.path.gateway.accessor.AccessorConfiguration
 
 import path.e01_configuration_basic.Accessor
 import path.e01_configuration_basic.AccountAccessor

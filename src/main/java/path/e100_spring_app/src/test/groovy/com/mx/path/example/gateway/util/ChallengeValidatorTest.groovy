@@ -1,7 +1,7 @@
 package com.mx.path.example.gateway.util
 
-import com.mx.models.challenges.Challenge
-import com.mx.models.challenges.Question
+import com.mx.path.model.mdx.model.challenges.Challenge
+import com.mx.path.model.mdx.model.challenges.Question
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException

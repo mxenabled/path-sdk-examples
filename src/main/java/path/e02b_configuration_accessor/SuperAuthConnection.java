@@ -4,8 +4,8 @@ import java.util.Objects;
 
 import lombok.Getter;
 
-import com.mx.common.configuration.Configuration;
-import com.mx.common.connect.AccessorConnectionSettings;
+import com.mx.path.core.common.configuration.Configuration;
+import com.mx.path.core.common.connect.AccessorConnectionSettings;
 
 public class SuperAuthConnection extends AccessorConnectionSettings {
 

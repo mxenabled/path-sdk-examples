@@ -1,11 +1,11 @@
 package path.e99_app;
 
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
-import com.mx.models.id.Authentication;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.configuration.AccessorDescriber;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
+import com.mx.path.model.mdx.model.id.Authentication;
 
 import path.e01_configuration_basic.Accessor;
 import path.lib.Logger;

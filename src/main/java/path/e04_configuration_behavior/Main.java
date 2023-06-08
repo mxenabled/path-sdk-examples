@@ -3,9 +3,9 @@ package path.e04_configuration_behavior;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.models.transfer.options.TransferListOptions;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
+import com.mx.path.model.mdx.model.transfer.options.TransferListOptions;
 
 import org.apache.commons.io.FileUtils;
 

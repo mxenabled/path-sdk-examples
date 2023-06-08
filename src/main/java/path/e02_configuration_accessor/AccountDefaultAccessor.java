@@ -1,11 +1,11 @@
 package path.e02_configuration_accessor;
 
-import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.AccessorSystemException;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
+import com.mx.path.core.common.accessor.BadRequestException;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
+import com.mx.path.model.mdx.accessor.account.AccountBaseAccessor;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
 
 import path.lib.Logger;
 
@@ -18,7 +18,6 @@ public class AccountDefaultAccessor extends AccountBaseAccessor {
   @Override
   public final AccessorResponse<MdxList<Account>> list() {
     Logger.log("The configured accessor did not override the default. This should not be executed!");
-    throw new AccessorSystemException("The configured accessor did not override the default. This should not be executed!");
+    throw new BadRequestException("The configured accessor did not override the default. This should not be executed!");
   }
-
 }

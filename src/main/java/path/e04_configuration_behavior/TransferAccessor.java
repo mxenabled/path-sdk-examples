@@ -1,12 +1,12 @@
 package path.e04_configuration_behavior;
 
-import com.mx.accessors.transfer.TransferBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.models.MdxList;
-import com.mx.models.transfer.Transfer;
-import com.mx.models.transfer.options.TransferListOptions;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
+import com.mx.path.model.mdx.accessor.transfer.TransferBaseAccessor;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.transfer.Transfer;
+import com.mx.path.model.mdx.model.transfer.options.TransferListOptions;
 
 public class TransferAccessor extends TransferBaseAccessor {
 

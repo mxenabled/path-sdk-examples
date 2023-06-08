@@ -3,12 +3,12 @@ package path.e11_remote_gateways;
 import java.io.IOException;
 import java.util.Map;
 
+import com.mx.path.core.context.RequestContext;
+import com.mx.path.core.context.Session;
+import com.mx.path.core.context.tracing.CustomTracer;
 import com.mx.path.gateway.accessor.remote.RemoteAccessor;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
-import com.mx.path.model.context.RequestContext;
-import com.mx.path.model.context.Session;
-import com.mx.path.model.context.tracing.CustomTracer;
 
 import org.apache.commons.io.FileUtils;
 

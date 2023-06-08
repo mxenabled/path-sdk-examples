@@ -2,14 +2,14 @@ package com.mx.path.example.gateway.accessor
 
 import static org.mockito.Mockito.*
 
-import com.mx.common.accessors.AccessorConfiguration
-import com.mx.common.accessors.AccessorConnectionSettings
-import com.mx.common.collections.ObjectMap
-import com.mx.models.challenges.Challenge
-import com.mx.models.origination.Origination
+import com.mx.path.core.common.accessor.AccessorConnectionSettings
+import com.mx.path.core.common.collection.ObjectMap
+import com.mx.path.core.context.Session
 import com.mx.path.example.gateway.configuration.OriginationConfiguration
 import com.mx.path.example.gateway.util.ChallengeValidator
-import com.mx.path.model.context.Session
+import com.mx.path.gateway.accessor.AccessorConfiguration
+import com.mx.path.model.mdx.model.challenges.Challenge
+import com.mx.path.model.mdx.model.origination.Origination
 import com.mx.path.originationorchestrator.OriginationOrchestrator
 import com.mx.testing.TestUtils
 

@@ -1,13 +1,13 @@
 package path.e02b_configuration_accessor;
 
-import com.mx.accessors.id.IdBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.configuration.Configuration;
-import com.mx.common.connect.AccessorConnectionSettings;
-import com.mx.models.id.Authentication;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.common.configuration.Configuration;
+import com.mx.path.core.common.connect.AccessorConnectionSettings;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.configuration.annotations.Connection;
+import com.mx.path.model.mdx.accessor.id.IdBaseAccessor;
+import com.mx.path.model.mdx.model.id.Authentication;
 
 import path.lib.Logger;
 
