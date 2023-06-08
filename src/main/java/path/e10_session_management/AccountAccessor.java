@@ -2,13 +2,14 @@ package path.e10_session_management;
 
 import java.math.BigDecimal;
 
-import com.mx.accessors.account.AccountBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
-import com.mx.path.model.context.Session;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.context.Session;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorResponse;
+import com.mx.path.gateway.context.Scope;
+import com.mx.path.model.mdx.accessor.account.AccountBaseAccessor;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
 
 import path.lib.Logger;
 
@@ -46,7 +47,7 @@ public class AccountAccessor extends AccountBaseAccessor {
     /**
      * Retrieving value from session
      */
-    Logger.log("Getting accounts for user: " + Session.current().get(Session.ServiceIdentifier.Session, "login"));
+    Logger.log("Getting accounts for user: " + Session.current().get(Scope.Session, "login"));
 
     return new AccessorResponse<MdxList<Account>>()
         .withResult(ACCOUNTS)

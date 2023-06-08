@@ -1,7 +1,7 @@
 package path.e02a_configuration_accessor;
 
-import com.mx.accessors.account.TransactionBaseAccessor;
-import com.mx.common.accessors.AccessorConfiguration;
+import com.mx.path.gateway.accessor.AccessorConfiguration;
+import com.mx.path.model.mdx.accessor.account.TransactionBaseAccessor;
 
 public class TransactionAccessor extends TransactionBaseAccessor {
 

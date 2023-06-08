@@ -10,13 +10,13 @@ import java.util.concurrent.ThreadLocalRandom;
 import lombok.Getter;
 import lombok.NonNull;
 
-import com.mx.common.collections.ObjectMap;
-import com.mx.common.messaging.EventListener;
-import com.mx.common.messaging.MessageBroker;
-import com.mx.common.messaging.MessageError;
-import com.mx.common.messaging.MessageResponder;
-import com.mx.common.messaging.MessageStatus;
-import com.mx.path.model.context.RequestContext;
+import com.mx.path.core.common.collection.ObjectMap;
+import com.mx.path.core.common.messaging.EventListener;
+import com.mx.path.core.common.messaging.MessageBroker;
+import com.mx.path.core.common.messaging.MessageError;
+import com.mx.path.core.common.messaging.MessageResponder;
+import com.mx.path.core.common.messaging.MessageStatus;
+import com.mx.path.core.context.RequestContext;
 
 import path.lib.Logger;
 

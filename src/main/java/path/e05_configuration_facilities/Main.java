@@ -3,13 +3,14 @@ package path.e05_configuration_facilities;
 import java.io.IOException;
 import java.util.Objects;
 
-import com.mx.common.security.EncryptionService;
-import com.mx.common.store.Store;
+import com.mx.path.core.common.security.EncryptionService;
+import com.mx.path.core.common.store.Store;
+import com.mx.path.core.context.RequestContext;
+import com.mx.path.core.context.Session;
+import com.mx.path.core.context.facility.Facilities;
+import com.mx.path.core.context.store.ScopedStore;
 import com.mx.path.gateway.api.GatewayConfigurator;
-import com.mx.path.model.context.RequestContext;
-import com.mx.path.model.context.Session;
-import com.mx.path.model.context.facility.Facilities;
-import com.mx.path.model.context.store.ScopedStore;
+import com.mx.path.gateway.context.Scope;
 
 import org.apache.commons.io.FileUtils;
 
@@ -60,10 +61,10 @@ public class Main {
     Session.createSession();
 
     // "Secure" Put value to session
-    Session.current().sput(Session.ServiceIdentifier.Session, "encrypted", sensitive);
+    Session.current().sput(Scope.Session, "encrypted", sensitive);
 
     // Put clear value to session
-    Session.current().put(Session.ServiceIdentifier.Session, "clear", sensitive);
+    Session.current().put(Scope.Session, "clear", sensitive);
 
     // Look behind the curtains to see what was written to the SessionStore.
     // This would not normally be done! Demonstration purposes only.
@@ -72,8 +73,8 @@ public class Main {
     Logger.log("Value written using put: " + sessionStore.get(Session.current().getId() + ":Session.clear"));
 
     // Can use get() for both (value will be decrypted if needed)
-    Logger.log("Value retrieved using get() for encrypted: " + Session.current().get(Session.ServiceIdentifier.Session, "encrypted"));
-    Logger.log("Value retrieved using get() for clear: " + Session.current().get(Session.ServiceIdentifier.Session, "clear"));
+    Logger.log("Value retrieved using get() for encrypted: " + Session.current().get(Scope.Session, "encrypted"));
+    Logger.log("Value retrieved using get() for clear: " + Session.current().get(Scope.Session, "clear"));
   }
 
 }

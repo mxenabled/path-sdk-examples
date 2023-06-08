@@ -1,6 +1,6 @@
 package path.e99_app;
 
-import com.mx.path.model.context.Session;
+import com.mx.path.core.context.Session;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

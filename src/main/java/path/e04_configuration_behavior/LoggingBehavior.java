@@ -2,11 +2,11 @@ package path.e04_configuration_behavior;
 
 import lombok.Getter;
 
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.collections.ObjectMap;
-import com.mx.common.configuration.Configuration;
-import com.mx.common.configuration.ConfigurationField;
-import com.mx.common.lang.Strings;
+import com.mx.path.core.common.collection.ObjectMap;
+import com.mx.path.core.common.configuration.Configuration;
+import com.mx.path.core.common.configuration.ConfigurationField;
+import com.mx.path.core.common.lang.Strings;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.behavior.GatewayBehavior;
 import com.mx.path.gateway.context.GatewayRequestContext;
 

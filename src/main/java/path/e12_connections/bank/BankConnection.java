@@ -6,13 +6,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mx.common.accessors.PathResponseStatus;
-import com.mx.common.configuration.Configuration;
-import com.mx.common.connect.UpstreamErrorException;
-import com.mx.common.http.HttpStatus;
-import com.mx.path.api.connect.http.HttpAccessorConnection;
-import com.mx.path.api.connect.http.HttpRequest;
-import com.mx.path.api.connect.http.HttpResponse;
+import com.mx.path.connect.http.HttpAccessorConnection;
+import com.mx.path.connect.http.HttpRequest;
+import com.mx.path.connect.http.HttpResponse;
+import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.common.configuration.Configuration;
+import com.mx.path.core.common.connect.UpstreamErrorException;
+import com.mx.path.core.common.http.HttpStatus;
 
 import path.e12_connections.bank.models.BankAccount;
 

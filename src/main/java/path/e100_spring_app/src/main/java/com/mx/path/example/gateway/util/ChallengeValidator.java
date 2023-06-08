@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mx.common.lang.Strings;
-import com.mx.models.challenges.Challenge;
-import com.mx.models.challenges.Question;
+import com.mx.path.core.common.lang.Strings;
+import com.mx.path.model.mdx.model.challenges.Challenge;
+import com.mx.path.model.mdx.model.challenges.Question;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

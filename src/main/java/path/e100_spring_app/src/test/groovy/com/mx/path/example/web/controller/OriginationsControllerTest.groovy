@@ -2,12 +2,12 @@ package com.mx.path.example.web.controller
 
 import static org.mockito.Mockito.*
 
-import com.mx.common.accessors.AccessorResponse
-import com.mx.models.challenges.Challenge
-import com.mx.models.origination.Origination
+import com.mx.path.core.context.Session
+import com.mx.path.gateway.accessor.AccessorResponse
 import com.mx.path.gateway.api.Gateway
 import com.mx.path.gateway.api.origination.OriginationGateway
-import com.mx.path.model.context.Session
+import com.mx.path.model.mdx.model.challenges.Challenge
+import com.mx.path.model.mdx.model.origination.Origination
 import com.mx.testing.TestUtils
 
 import org.springframework.http.HttpStatus

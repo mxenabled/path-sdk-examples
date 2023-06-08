@@ -3,9 +3,9 @@ package path.e02b_configuration_accessor;
 import java.io.IOException;
 import java.util.Map;
 
-import com.mx.models.id.Authentication;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
+import com.mx.path.model.mdx.model.id.Authentication;
 
 import org.apache.commons.io.FileUtils;
 

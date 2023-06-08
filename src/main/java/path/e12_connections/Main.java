@@ -4,14 +4,14 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.UUID;
 
-import com.mx.common.accessors.AccessorResponse;
-import com.mx.common.models.MdxList;
-import com.mx.models.account.Account;
+import com.mx.path.core.context.RequestContext;
+import com.mx.path.core.context.Session;
+import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.api.Gateway;
 import com.mx.path.gateway.api.GatewayConfigurator;
 import com.mx.path.gateway.context.Scope;
-import com.mx.path.model.context.RequestContext;
-import com.mx.path.model.context.Session;
+import com.mx.path.model.mdx.model.MdxList;
+import com.mx.path.model.mdx.model.account.Account;
 
 import org.apache.commons.io.FileUtils;
 

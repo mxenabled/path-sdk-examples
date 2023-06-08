@@ -2,7 +2,7 @@ package path.e12_connections.bank;
 
 import lombok.Data;
 
-import com.mx.common.configuration.ConfigurationField;
+import com.mx.path.core.common.configuration.ConfigurationField;
 
 @Data
 public class BankConnectionConfiguration {
