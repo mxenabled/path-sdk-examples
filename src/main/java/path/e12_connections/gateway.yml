@@ -17,7 +17,8 @@ demo:
         class: path.e12_connections.AccountAccessor
         scope: prototype
         connections:
-          bank:
-            baseUrl: http://localhost:3000
+          myFakeBank:
+            baseUrl: https://integration.myfakebank.com/api/rest/v1
             configurations:
-              clientId: C0999283
+              apiKey: 9028f6a0-52f8-4fe6-8387-985cce9bf6e7
+

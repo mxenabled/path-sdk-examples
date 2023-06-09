@@ -6,6 +6,6 @@ import com.mx.path.core.common.configuration.ConfigurationField;
 
 @Data
 public class BankConnectionConfiguration {
-  @ConfigurationField(required = true)
-  private String clientId;
+  @ConfigurationField(required = true, secret = true)
+  private String apiKey;
 }
