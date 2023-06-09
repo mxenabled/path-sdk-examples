@@ -13,6 +13,7 @@ public class BankAccount {
   private String accountStatus;
   private String currentBalance;
   private String availableBalance;
+  private String accountSubtypeId;
 
   @Data
   public static class BankAccounts {
