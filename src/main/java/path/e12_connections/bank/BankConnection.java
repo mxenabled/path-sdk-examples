@@ -4,8 +4,9 @@ import java.util.List;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.GsonBuilder;
 import com.mx.path.connect.http.HttpAccessorConnection;
 import com.mx.path.connect.http.HttpRequest;
 import com.mx.path.connect.http.HttpResponse;
@@ -18,10 +19,8 @@ import path.e12_connections.bank.models.BankAccount;
 
 @SuppressFBWarnings("EQ_DOESNT_OVERRIDE_EQUALS")
 public class BankConnection extends HttpAccessorConnection {
-  private static final TypeToken<List<BankAccount>> ACCOUNT_LIST_TYPE = new TypeToken<List<BankAccount>>() {
-  };
 
-  private transient Gson gson = new Gson();
+  private transient Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
   private final BankConnectionConfiguration configuration;
 
   public BankConnection(@Configuration BankConnectionConfiguration connectionConfiguration) {
@@ -29,11 +28,12 @@ public class BankConnection extends HttpAccessorConnection {
   }
 
   @SuppressWarnings("unchecked")
-  public final List<BankAccount> getAccounts(String memberId, String token) {
-    HttpResponse response = request("accounts", token)
-        .withQueryStringParam("memberId", memberId)
-        .withHeader("cache-ctrl", "NOCACHE")
-        .withProcessor((resp) -> gson.fromJson(resp.getBody(), ACCOUNT_LIST_TYPE.getType()))
+  public final List<BankAccount> getAccounts(String customerId) {
+    HttpResponse response = request("customers/" + customerId + "/accounts")
+        .withProcessor((resp) -> {
+          BankAccount.BankAccounts accounts = gson.fromJson(resp.getBody(), BankAccount.BankAccounts.class);
+          return accounts.getAccounts();
+        })
         .withOnComplete((resp) -> {
           if (resp.getStatus() != HttpStatus.OK) {
             throw new UpstreamErrorException("Failed to get accounts", resp.getStatus(), PathResponseStatus.UNAVAILABLE);
@@ -44,12 +44,10 @@ public class BankConnection extends HttpAccessorConnection {
     return response.getObject();
   }
 
-  public final HttpRequest request(String path, String token) {
+  @Override
+  public final HttpRequest request(String path) {
     HttpRequest httpRequest = super.request(path);
-    httpRequest.withHeader("token", token);
-    httpRequest.withHeader("clientId", configuration.getClientId());
-
-    System.out.println("CLIENT_ID: " + configuration.getClientId());
+    httpRequest.withHeader("API-KEY", configuration.getApiKey()); // Adding API key header to all requests.
 
     return httpRequest;
   }

@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.mx.path.core.common.accessor.PathResponseStatus;
+import com.mx.path.core.common.lang.Strings;
 import com.mx.path.core.context.Session;
 import com.mx.path.gateway.accessor.AccessorConfiguration;
 import com.mx.path.gateway.accessor.AccessorResponse;
 import com.mx.path.gateway.configuration.annotations.AccessorScope;
 import com.mx.path.gateway.configuration.annotations.Connection;
 import com.mx.path.gateway.configuration.annotations.MaxScope;
-import com.mx.path.gateway.context.Scope;
 import com.mx.path.model.mdx.accessor.account.AccountBaseAccessor;
 import com.mx.path.model.mdx.model.MdxList;
 import com.mx.path.model.mdx.model.account.Account;
@@ -24,21 +24,23 @@ public class AccountAccessor extends AccountBaseAccessor {
 
   private BankConnection connection;
 
-  public AccountAccessor(AccessorConfiguration configuration, @Connection("bank") BankConnection connection) {
+  public AccountAccessor(AccessorConfiguration configuration, @Connection("myFakeBank") BankConnection connection) {
     super(configuration);
     this.connection = connection;
   }
 
   @Override
   public final AccessorResponse<MdxList<Account>> list() {
-    List<BankAccount> accounts = connection.getAccounts(Session.current().getUserId(), Session.current().get(Scope.Session, "bankToken"));
+    List<BankAccount> accounts = connection.getAccounts(Session.current().getUserId());
     MdxList<Account> mdxAccounts = accounts.stream().map(bankAccount -> {
       Account mdxAccount = new Account();
       mdxAccount.setId(bankAccount.getId());
-      mdxAccount.setName(bankAccount.getDesc());
-      mdxAccount.setAccountNumber(bankAccount.getId());
-      mdxAccount.setBalance(BigDecimal.valueOf(bankAccount.getBal()));
-      mdxAccount.setType(mapType(bankAccount.getT()));
+      mdxAccount.setAccountNumber(bankAccount.getAccountNumber());
+      mdxAccount.setBalance(BigDecimal.valueOf(Double.parseDouble(bankAccount.getCurrentBalance())));
+
+      if (Strings.isNotBlank(bankAccount.getAvailableBalance())) {
+        mdxAccount.setAvailableBalance(BigDecimal.valueOf(Double.parseDouble(bankAccount.getAvailableBalance())));
+      }
 
       return mdxAccount;
     }).collect(Collectors.toCollection(MdxList::new));
@@ -47,15 +49,4 @@ public class AccountAccessor extends AccountBaseAccessor {
         .withResult(mdxAccounts)
         .withStatus(PathResponseStatus.OK);
   }
-
-  private String mapType(String t) {
-    if (t.equals("CHK")) {
-      return "CHECKING";
-    } else if (t.equals("SAV")) {
-      return "SAVINGS";
-    } else {
-      return "UNKNOWN";
-    }
-  }
-
 }
