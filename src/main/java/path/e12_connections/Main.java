@@ -29,6 +29,7 @@ public class Main {
     @Subscribe
     public final void afterRequest(AfterUpstreamRequestEvent event) {
       System.out.println("\nREQUEST --------------------------------------");
+      System.out.println("  URI: [" + event.getRequest().getMethod() + "] " + event.getRequest().getUri());
       System.out.println("  Status: " + event.getResponse().getStatus());
       System.out.println("  Body:" + event.getResponse().getBody());
       System.out.println("----------------------------------------------");
